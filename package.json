@@ -1,7 +1,6 @@
 {
   "name": "nodejs-mini",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +14,16 @@
     "nodemon": "^2.0.7",
     "peer": "^0.6.1",
     "peerjs": "^1.3.1",
-    "socket.io": "^3.0.3",
+    "socket.io": "^3.0.5",
     "uuid": "^8.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vAishh123/video-conference.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vAishh123/video-conference/issues"
+  },
+  "homepage": "https://github.com/vAishh123/video-conference#readme",
+  "description": ""
 }
