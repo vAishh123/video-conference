@@ -73,7 +73,7 @@
 }
 
 .main__chat_window {
-    flex-grow: 1;
+    flex-grow: 10;
     overflow-y: auto;
 }
 

@@ -64,7 +64,10 @@
             </div>
             <div class="main__controls__block">
                <div class="main__controls__button">
-                  <span class="leave_meeting">Leave Meeting</span>
+                  
+                  <form action="/logout?_method=DELETE" method="POST">
+                     <button type="submit">Log Out</button>
+                   </form>
                </div>
             </div>
          </div>
