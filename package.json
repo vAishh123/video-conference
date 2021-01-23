@@ -32,9 +32,9 @@
     "url": "https://github.com/vAishh123/video-conference/issues"
   },
   "homepage": "https://github.com/vAishh123/video-conference#readme",
-  "description": "",
   "devDependencies": {
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "description": ""
 }
