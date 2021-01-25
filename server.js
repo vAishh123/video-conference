@@ -1,7 +1,6 @@
-if(process.env.NODE_ENV !=='production'){
+if(process.env.NODE_ENV !=='production' &&process.env.SESSION_SECRET='abc123'){
   require('dotenv').config()
 }
-process.env.SESSION_SECRET="abc123"
 const express = require('express')
 const app = express()
 const bcrypt=require('bcrypt')
