@@ -37,8 +37,8 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   },
-  "description": ""
-},
-engine:{
-  node:"12.18.x"
+  "description": "",
+  "engine":{
+  "node":"12.18.x"
+}
 }
