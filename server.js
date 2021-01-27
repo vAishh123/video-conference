@@ -28,7 +28,7 @@ app.use('/peerjs', peerServer);
 app.use(express.urlencoded({extended:false}))
 app.use(flash())
 app.use(session({
-  secret:process.env.SESSION_SECRET,
+  secret:process.env.SESSION_SECRET='123',
   resave:false,
   saveUninitialized:false
 }))
