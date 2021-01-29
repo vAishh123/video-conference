@@ -1,1 +1,1 @@
-web: node room.ejs
+web: npm run start
