@@ -16,6 +16,8 @@
     "express-session": "^1.17.1",
     "flash": "^1.1.0",
     "method-override": "^3.0.0",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.14",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "peer": "^0.6.1",
