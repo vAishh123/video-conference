@@ -1,6 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
 const express = require('express')
 const app = express()
 const bcrypt = require('bcryptjs')
@@ -9,6 +6,11 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const initializePassport = require('./passport-config')
+const mongoose=require('mongoose')
+require('dotenv').config()
+
+const handleUserRegister = require('./routeHandler/registerUser')
+
 initializePassport(
   passport,
   email => users.find(user => user.email === email),
@@ -16,6 +18,16 @@ initializePassport(
 )
 // const cors = require('cors')
 // app.use(cors())
+const mongooseUrl='mongodb+srv://vAishh:vAishh123@cluster0.qjdaf.mongodb.net/mongoDb?retryWrites=true&w=majority'
+mongoose.connect(mongooseUrl, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('db connection established.')
+}).catch((err) => {
+  console.log('db connection error: ', err)
+});
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { ExpressPeerServer } = require('peer');
@@ -48,22 +60,9 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('register.ejs')
 })
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword
-    })
-    res.redirect('/login')
-  }
-  catch {
-    res.redirect('/register')
-  }
-  console.log(users)
-})
+app.post('/register', checkNotAuthenticated, handleUserRegister)
+
+
 app.get('/', checkAuthenticated, (req, res) => {
   res.redirect(`/${uuidV4()}`)
 })
