@@ -9,13 +9,14 @@ const initializePassport = require('./passport-config')
 const mongoose=require('mongoose')
 require('dotenv').config()
 
-const handleUserRegister = require('./routeHandler/registerUser')
+const handleUserRegister = require('./route_handler/registerUser')
 
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-)
+// const users = []
+// initializePassport(
+//   passport,
+//   email => users.find(user => user.email === email),
+//   id => users.find(user => user.id === id)
+// )
 // const cors = require('cors')
 // app.use(cors())
 const mongooseUrl='mongodb+srv://vAishh:vAishh123@cluster0.qjdaf.mongodb.net/mongoDb?retryWrites=true&w=majority'
@@ -35,7 +36,6 @@ const peerServer = ExpressPeerServer(server, {
   debug: true
 });
 const { v4: uuidV4 } = require('uuid')
-const users = []
 app.use('/peerjs', peerServer);
 app.use(express.urlencoded({ extended: false }))
 app.use(flash())
@@ -44,8 +44,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
