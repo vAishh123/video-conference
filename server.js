@@ -11,14 +11,14 @@ require('dotenv').config()
 
 const handleUserRegister = require('./route_handler/registerUser')
 
-// const users = []
-// initializePassport(
-//   passport,
-//   email => users.find(user => user.email === email),
-//   id => users.find(user => user.id === id)
-// )
-// const cors = require('cors')
-// app.use(cors())
+const users = []
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+)
+const cors = require('cors')
+app.use(cors())
 const mongooseUrl='mongodb+srv://vAishh:vAishh123@cluster0.qjdaf.mongodb.net/mongoDb?retryWrites=true&w=majority'
 mongoose.connect(mongooseUrl, {
   useNewUrlParser: true,
@@ -44,8 +44,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(methodOverride('_method'))
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
