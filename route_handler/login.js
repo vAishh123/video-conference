@@ -21,11 +21,13 @@ module.exports = async (req, res) => {
                 message: "Incorrect password!"
             });
         }
-        res.redirect('/room.ejs');
-     //   res.status(200).json({
+        
+        res.redirect('/room.ejs'); 
+      //res.status(200).json({
        //     message: "User Loggedin!",
-         //   data: user
+          // data: user
         //});
+       
     }
     catch (e) {
         console.log('error>> ', e);

@@ -1,4 +1,5 @@
 const socket = io('/')
+const User = require('../dbschema/userRegisterSchema')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
