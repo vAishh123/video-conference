@@ -9,7 +9,8 @@ const initializePassport = require('./passport-config')
 const mongoose=require('mongoose')
 require('dotenv').config()
 
-const handleUserRegister = require('./route_handler/registerUser')
+const handleUserRegister = require('./route_handler/registerUser');
+const handleUserLogin = require('./route_handler/login');
 
 const users = []
 initializePassport(
@@ -52,6 +53,7 @@ app.use(express.static('public'))
 app.get('/login', checkNotAuthenticated, (req, res) => {
   res.render('login.ejs')
 })
+app.post('/login', checkNotAuthenticated, handleUserLogin)
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login',
