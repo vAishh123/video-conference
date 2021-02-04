@@ -1,5 +1,4 @@
 const socket = io('/')
-const User = require('../dbschema/userRegisterSchema')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
@@ -36,7 +35,7 @@ navigator.mediaDevices.getUserMedia({
       text.val('')
     }
   });
-  socket.on("createMessage", message => {
+  socket.on("createMessage", (message,user) => {
     $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
     scrollToBottom()
   })
