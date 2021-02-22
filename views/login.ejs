@@ -1,17 +1,20 @@
-<h1>Login</h1>
+<link rel="stylesheet" href="login.css">
+<div class="login">
+<div class="login-triangle"></div>
+<h2 class="login-header">Login</h2>
 <% if (messages.error) { %>
    <%= messages.error %>
 <% } %>
-<form action="/login" method="POST">
+<form class="login-form" action="/login" method="POST">
 <div>
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+    <p><input type="email" id="email" name="email" required></p>
 </div>
 <div>
     <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
-</div>
-<button type="submit">Login</button>
+    <p><input type="password" id="password" name="password" required></p>
+</div >
+<p><input type="submit" value="Log in"></p>
 </form>
-<a href="/Register">Register</a>
-
+<h4>Not a user ? <a href="/register">Register</a></h4>
+</div>
