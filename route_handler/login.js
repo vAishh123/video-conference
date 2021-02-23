@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
             });
         }
         
-        res.redirect('/server.js'); 
+        res.redirect(`server.js`) 
       //res.status(200).json({
        //     message: "User Loggedin!",
           // data: user
